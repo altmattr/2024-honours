@@ -27,15 +27,17 @@ Adjust the ArduPilot code to apply `MOT_SLEWRATE` at the motor output rather tha
     * Skid-steer rover simulation
   * Adjust ArduPilot Code
      * ArduPilot development environment
-       * ArduPilot dev on CodeSpaces
+       * ~~ArduPilot dev on CodeSpaces~~
        * Run my own build in the simulation
+         * ~~Will need a cygwin based dev pipeline for this~~ Got this setup on the dell in the office, it is all a bit of a pain
       *  ~~Find the code in question~~
   * Test in simulation
-    * Design the test.
+    * ~~Design the test.~~
+    * Run with existing firmware
+    * Run with modified firmware
   * Test in real life
 
 ## Details
-
 
 ```mermaid
 graph TD;
@@ -48,13 +50,44 @@ graph TD;
     output_throttle --> get_rate_controlled_throttle;
 ```
   * `output` is the overall function to output throttle and steering.  It adjusts the throttle value _at this point_ for slew using the helper `slew_limit_throttle` function.
-  * `output_skid_steering` is responsible for adding the steering adjusments to the throttle values so that the throttles can give effect to direction change.
+  * `output_skid_steering` is responsible for adding the steering adjustments to the throttle values so that the throttles can give effect to direction change.
   * `get_scaled_throttle` applies the throttle curve if one is defined
-  * `get_rate_controlled_throttle` applies the turn rate controller to the skid steer throttle outputs.  This feels like it might substitute for slew but it only works in various auto modes.  You can see that is checked int he code (the adjustment is guarded by `A && _rate_controller.enabled(0)) `)
+  * `get_rate_controlled_throttle` applies the turn rate controller to the skid steer throttle outputs.  This feels like it might substitute for slew but it only works in various auto modes.  You can see that is checked in the code (the adjustment is guarded by `A && _rate_controller.enabled(0)) `)
 
 ### Comments
 
 I would like to know the logic for applying the slew limit in a different place to the throttle curve and the turn rate controls.  I think putting slew limit into that pipeline all the way down at `output_throttle` makes more sense.
+
+# Test
+
+  * Make a mission with forward, 180 degree turn, forward, backward.  
+  * Arm, run mission in auto.  
+  * Swap to manual and run the mission by hand.  Disarm
+  * Grab the log and compare the two runs. (download log with MissionPlanner then replay file from MissionPlanner)
+  * Make code changes and repeat test.
+
+# Results
+
+With the latest (dev) firmware in Mission Planner simulation, controlled by joystick we get the follwing plot for the two motor servo outputs. Note a digital joystick was used to inputs went from 0 to 100 instantaneously.
+
+![image](0306_existing_forward_turn_forward_turn.jpg)
+
+The motors have (the red is hidden under the green when the co-incide) incresed quickly, but not immediately for the forward motion but have increased instantaneously for the turns.
+
+There is no motor slew so I wonder what is causing that the slowish increase in forward motor output?
+
+When we add motor slew (set to 10 percent) the results (for a forward motion then two turns) are
+
+![image](0306_existing_with_slew_forward_turn_turn.jpg)
+
+Forward motion has increased and decreased very slowly but turns still cause the motors to go from 0 to full instantly.
+
+# Remaining Questions
+
+  * Why do the motor outputs seems to have a minor slew even when there is none set?
+  * Why is all this code in `libraries/AR_Motors/AP_MotorsUGV`?  There is nothing else in that folder.  Is AR for ArduRover?
+
+
 # WIP
 
 `mode.cpp` calculates `throttle_out_limited` using a `g2.motors` function `get_slew_limited_throttle`.  In this function, `_slew_rate` local variable is used to adjust the planned throttle change (`dt`) according to the slew rate.
