@@ -4,13 +4,13 @@
 
 In the current follow mode, the vehicle (in this case, a rover) will try to follow another vehicle or object that is transmitting its current position. 
 
-#Basic Solution
+# Basic Solution
 
 The current basic solution is that each vehicle has a telemetry radio and shares the same NetID, and vehicle B just follows vehicle A using the information from the radio.
 
 ![Follow1](https://github.com/altmattr/2024-honours/assets/80295061/4e8a072f-9c24-41c1-8a23-c145e24b27a2)
 
-#Advanced Solution
+# Advanced Solution
 
 The advanced solution will most likely be the one that is focused on as it uses a Ground Control Station (GCS). A second telemetry radio is required on whichever vehicle needs to be connected.
 
@@ -30,7 +30,7 @@ The advanced solution will most likely be the one that is focused on as it uses 
 
 `FOLL_POS_P` gain which controls how aggressively this vehicle moves towards lead vehicle (limited by WPNAV_SPEED)
 
-#Telemetry Radios 
+# Telemetry Radios 
 
 Telemetry radios provide this information:
 
@@ -42,13 +42,13 @@ Enhanced Safety: By providing real-time data transmission, telemetry radios enha
 
 Range and Reliability: These radios are designed to operate over long distances, from 300 metres out of box to potentially several of kilometers, depending on the technology and setup. They offer reliable communication even in challenging environments or where direct line of sight is not possible.
 
-#Ground Control Stations
+# Ground Control Stations
 
 Ground Control Stations (GCS) serve as crucial interfaces for controlling drones, UAVs, and other unmanned systems, offering a blend of hardware and software components designed for comprehensive mission management. These stations allow operators to command their vehicles, plan missions, monitor real-time data, and even control UAVs directly through a "virtual cockpit" interface that mirrors the experience of piloting an aircraft.
 
 The selection of a GCS can depend on several factors, including the specific vehicle being operated and the user's preferred computing platform. Desktop applications like Mission Planner and QGroundControl are popular among DIY enthusiasts and developers for their extensive configuration and analysis tools. At the same time, mobile apps provide portability and ease of use for on-the-go operations. Code developers might lean towards MAVProxy for its specialized features and extensibility.
 
-#Evidence 
+# Evidence 
 
 https://ardupilot.org/rover/docs/follow-mode.html
 https://ardupilot.org/copter/docs/common-sik-telemetry-radio.html
