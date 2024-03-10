@@ -50,7 +50,7 @@ The selection of a GCS can depend on several factors, including the specific veh
 
 # Evidence 
 
-https://ardupilot.org/rover/docs/follow-mode.html
-https://ardupilot.org/rover/docs/common-sik-telemetry-radio.html
-https://en.wikipedia.org/wiki/Telemetry
-https://ardupilot.org/rover/docs/common-choosing-a-ground-station.html
+* https://ardupilot.org/rover/docs/follow-mode.html
+* https://ardupilot.org/rover/docs/common-sik-telemetry-radio.html
+* https://en.wikipedia.org/wiki/Telemetry
+* https://ardupilot.org/rover/docs/common-choosing-a-ground-station.html
