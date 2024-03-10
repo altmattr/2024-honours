@@ -16,7 +16,7 @@ The advanced solution will most likely be the one that is focused on as it uses 
 
 ![Follow2](https://github.com/altmattr/2024-honours/assets/80295061/955f3978-be3c-47d7-b205-6b4c8f743ce8)
 
-#Follow Mode Parameters
+# Follow Mode Parameters
 
 `FOLL_ENABLE` set to 1 to enable follow mode and refresh parameters.
 
