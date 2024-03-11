@@ -90,6 +90,11 @@ fn find_max_f64(list: &[f64]) -> f64 { ... }
 
 # Questions to ask Matt:
 - Deep vs Shallow Embedding
+  - Write special functions for Kiama, carefully constructed so it does not feel like you are using a library (Shallow)
+    - Instead of having to "string". ~> (params)
+    - We can just do "string" ~> "foo"
+    - Embedding a language just with a library 
+  - Deep: .process() -> does its own little compilation, parse, execute, interprete
 - Inductive types in Functional Programming
 - Lexical vs Block scope 
 
@@ -98,8 +103,9 @@ fn find_max_f64(list: &[f64]) -> f64 { ... }
   - There is info on how Low* gets converted to ML-like AST using F*'s existing normalizer and eraser facility, which then gets fed into an input to KaRaMel
   - BUT, in the KaRaMel documentation which covers the compilation of F* into C, the ML-like AST gets converted to Low* before being converted to C*, then C
   - So how does the Flow actually go?
-    - `F* ->(via F*'s erasure/normaliser facility) ML-like AST -> (Using KaRaMel) Low*/λow∗(?) -> C* -> C` [2] [3] [5]
+    - `F*/Pipit ->(via F*'s erasure/normaliser facility) ML-like AST -> (Using KaRaMel) Low*/λow∗(?) -> C* -> C` [2] [3] [5]
       - λow∗ is the core of Low*, post erasure [2]
+      - Pipit is considered "above" Low*, Low* is being treated as one of the intermediary steps to C
 2. But we also have
     - `Low* -> (via F*'s erasure/normaliser facility) ML-Like AST -> (Using KaRaMel) -> λow∗ -> C* -> C` [2]
 3. F* can be compiled to OCaml via `--codegen `OCaml`, and OCaml can be converted to C. So why is KaRaMel being used? What is the difference between the two ways?
