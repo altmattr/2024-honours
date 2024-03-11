@@ -75,27 +75,40 @@ fn find_max_f64(list: &[f64]) -> f64 { ... }
     2.  Expands top level definitions
     3.  All expressions that are not C expressions are converted to statement 
 10. At this point, the program fits the definition of Low*
-11. KaRaMel converts the Low* program to C* (TBC)
+11. **KaRaMel converts the Low\* program to C\* (TBC)**
     1.  Goes from a lexical scope to block scope (<Research more about lexical vs block scopes>)
     2.  Optimises functions that return unit into functions that return void
     3.  Optimises functions that take unit into functions that take no parameters
-12. C* Program converted to an abstract C (TBC)
+12. **C\* Program converted to an abstract C (TBC)**
     1.  Turning ML-style types into specifiers and declarators
     2.  Replacing all high-level nodes with actual C constructs
     3.  Making the initialization of buffers explicit
-13. Prints the C abstract tree into actual syntax (TBC)
+13. **Prints the C abstract tree into actual syntax (TBC)**
     1.  Respecting the Precedence of Operators
     2.  Introducing Sensible Indentation
     3.  Dealing with C abmiguities
 
-# Why do we need to use Obc instead of PTS in the first place
-[5]
+# Questions to ask Matt:
+- Deep vs Shallow Embedding
+- Inductive types in Functional Programming
+- Lexical vs Block scope 
 
-
+# Questions for Amos:
+1. KaRaMel starts with the ML-like AST, but it doesn't mention what happens to the original F*/Pipit code before we have the `ML-like AST`
+  - There is info on how Low* gets converted to ML-like AST using F*'s existing normalizer and eraser facility, which then gets fed into an input to KaRaMel
+  - BUT, in the KaRaMel documentation which covers the compilation of F* into C, the ML-like AST gets converted to Low* before being converted to C*, then C
+  - So how does the Flow actually go?
+    - `F* ->(via F*'s erasure/normaliser facility) ML-like AST -> (Using KaRaMel) Low*/λow∗(?) -> C* -> C` [2] [3] [5]
+      - λow∗ is the core of Low*, post erasure [2]
+2. But we also have
+    - `Low* -> (via F*'s erasure/normaliser facility) ML-Like AST -> (Using KaRaMel) -> λow∗ -> C* -> C` [2]
+3. F* can be compiled to OCaml via `--codegen `OCaml`, and OCaml can be converted to C. So why is KaRaMel being used? What is the difference between the two ways?
+  - Is the `ML-like AST` basically the OCaml code F* is converted to before being fed to KaRaMel?
+  - OCaml is needed to use KaRaMel
 
 # References:
-[1] Proof-Oriented Programming in F*, Nikhil Swamy, Guido Martínez, and Aseem Rastogi
-[2] Verified Low-Level Programming Embedded in F∗, Page 3 Fig 1, Section 4.1, JONATHAN PROTZENKO, JEAN-KARIM ZINZINDOHOUÉ
-[3] KaRaMel https://github.com/FStarLang/karamel
-[4] https://rustc-dev-guide.rust-lang.org/backend/monomorph.html
-[5] Pipit on the Post: Proving Pre- and Post-conditions of Reactive Systems, Section 5
+- [1] Proof-Oriented Programming in F*, Page 11 Section 1.5, Page 88 Section 10.3, Nikhil Swamy, Guido Martínez, and Aseem Rastogi
+- [2] Verified Low-Level Programming Embedded in F∗, Page 3 Fig 1, Section 4.1, JONATHAN PROTZENKO, JEAN-KARIM ZINZINDOHOUÉ
+- [3] KaRaMel https://github.com/FStarLang/karamel
+- [4] https://rustc-dev-guide.rust-lang.org/backend/monomorph.html
+- [5] Pipit on the Post: Proving Pre- and Post-conditions of Reactive Systems, Section 5
