@@ -1,7 +1,5 @@
 # Current Technical Solutions For Object Detection Using AI 
 
-# Overview
-
 # What is object detection 
 Object detection is a computer vision technique that identifies and locates objects within an image or video. Specifically, object detection draws bounding boxes around these detected objects.
 
