@@ -35,7 +35,7 @@ These models represent the evolution and variety of approaches in deep learning 
 * Traditional Methods Utilize algorithms like OpenCV, which focus on image processing without the need for annotated training data. They are effective for simple tasks but struggle with complex scenes and obscured views.
 * Deep Learning Methods Employ neural networks that require large annotated datasets for training. They offer superior performance in handling complex scenarios, including occlusion and variable lighting conditions.
 
-$ Evolution of Object Detection Models
+# Evolution of Object Detection Models
 Pre-Deep Learning Era: Characterized by algorithms like Viola-Jones and HOG, which laid the groundwork for object detection. These methods were foundational but limited compared to what deep learning would later achieve​.
 Deep Learning Era:
 * Two-Stage Detectors: Such as R-CNN and its evolutions (Fast R-CNN, Faster R-CNN, and Mask R-CNN), which propose regions of interest before classification, achieving high accuracy but at a slower speed​​​.
