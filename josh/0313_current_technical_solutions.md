@@ -34,8 +34,6 @@ These models represent the evolution and variety of approaches in deep learning 
 
 # Evidence
 * https://fritz.ai/object-detection/
-* https://viso.ai/deep-learning/object-detection/
-* https://www.edenai.co/post/top-10-object-detection-apis
 * https://hal.science/hal-03836472
 * https://ieeexplore.ieee.org/document/9843697
 * https://ieeexplore.ieee.org/abstract/document/9520347  
