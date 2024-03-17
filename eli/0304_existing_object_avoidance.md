@@ -1,6 +1,4 @@
-# Current ArduPilot Object Avoidance Background
-
-# Overview
+# Overview - Current ArduPilot Object Avoidance Background
 
 Currently Ardupilot offers several kinds of object avoidance for objects, ground, and ceilings. There is also avoidance of other Airborne Vehicles available (ADSB). All these methods require external hardware.
 
@@ -20,6 +18,9 @@ Other sensors that are capable of providng MAVLink messages can also be used.
 
 # BendyRuler - Path Planning
 The BendyRuler algorithm searches in various directions around the vehicle for open areas, aiming to choose a path that is adequately clear and also guides the vehicle towards its ultimate goal.
+![Screenshot 2024-03-17 at 1 48 10 pm](https://github.com/altmattr/2024-honours/assets/91449994/2cf3bf97-3f50-4dfd-b5a9-96a378d84cb6)
+
+
 
 ## Setup - 
 * set OA_TYPE = 1 - this enables the bendyruler algorithm
@@ -27,6 +28,26 @@ The BendyRuler algorithm searches in various directions around the vehicle for o
 * set OA_MARGIN_MAX - Distance the vehicle should stay away from objects with 2m being standard.
 * set OA_BR_TYPE - choice of horizontal or vertical pathing. "1" is required setting for horizontal pathing. 
 
-# Dijkstras
+# Dijkstras - Path Planning
 
 Internally builds up safe areas calculated from stay-out zones and finds the shortest path to the destination.
+![Screenshot 2024-03-17 at 1 35 55 pm](https://github.com/altmattr/2024-honours/assets/91449994/1dbc4089-d619-4ad0-b933-4cb258f63053)
+
+## Setup - 
+* set OA_TYPE = 2 - this enables dijkstra's algorithm
+* set OA_MARGIN_MAX - Distance the vehicle should stay away from objects with 2m being standard.
+* set OA_OPTIONS - can be set to use S-Curves around fence corners in the planned path to speed up turns.
+
+# Combined Dijkstras & BendyRuler - Path Planning
+
+Begins with traditional Dijkstra's planning of the shortest path, if it comes axcross a proximity based obstacle the navigation would switch to BendyRuler.
+
+## Setup - 
+* OA_TYPE = 3
+
+# References
+* https://ardupilot.org/copter/docs/common-oa-dijkstrabendyruler.html
+* https://ardupilot.org/copter/docs/common-oa-dijkstras.html
+* https://ardupilot.org/copter/docs/common-oa-bendyruler.html
+* https://ardupilot.org/copter/docs/common-simple-object-avoidance.html
+* https://ardupilot.org/copter/docs/common-object-avoidance-landing-page.html
