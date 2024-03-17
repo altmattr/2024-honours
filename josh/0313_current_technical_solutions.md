@@ -19,7 +19,7 @@ An advancement over the pure regressor is the region proposal network (RPN), whi
 
 Single shot detectors (SSDs) represent a middle ground using predefined regions based on a grid of anchor points across the image, allowing for the detection of objects at various scales and aspect ratios. However, SSDs often produce overlapping detections, requiring post-processing techniques like non-maximum suppression to refine the results.
 
-The accuracy of object detection models is typically measured by intersection-over-union (IOU) for location accuracy and per cent correct for label accuracy.
+The accuracy of object detection models is typically measured by intersection-over-union (IOU) for location accuracy and the percent correct for label accuracy.
 
 Several models have emerged within this framework:
 
