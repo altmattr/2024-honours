@@ -30,8 +30,3 @@ set OA_BR_TYPE - choice of horizontal or vertical pathing. "1" is required setti
 # Dijkstras
 
 Internally builds up safe areas calculated from stay-out zones and finds the shortest path to the destination.
-
-
-
-
-![Follow2](https://github.com/altmattr/2024-honours/assets/80295061/955f3978-be3c-47d7-b205-6b4c8f743ce8)
