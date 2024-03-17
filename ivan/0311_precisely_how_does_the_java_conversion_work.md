@@ -37,6 +37,23 @@ Processes the parse tree via **PDEParseTreeListener.java** //this might be wrong
 **PdeParsetreeListener.java**
 
 ---
+```mermaid
+graph TD;
+    tabs-->sketch;
+    sketch-->JavaBuild;
+    JavaBuild-->PdePreprocessor;
+    PdePreprocessor-->PdeParseTreeListener;
+    JavaBuild-->Compiler;
+
+    JavaLexer.g4-->ANTLR;
+    JavaParser.g-->ANTLR;
+    Processing.g4-->ANTLR;
+    ANTLR-->ProcessingBaseListener;
+    ProcessingBaseListener-->PdeParseTreeListener;
+```
+---
+
+---
 **sidenote:** This is how it is suggested to edit the editor directly within the CONTRIBUTING.md. They otherwise suggest adding new functionality to processing via a library. 
 
 > With that in mind, any work on updating the editor and adding new features should be focused on further [adapting the preprocessor and compiler](https://github.com/processing/processing4/issues/117) to be wrapped using the [Language Server Protocol](https://en.wikipedia.org/wiki/Language_Server_Protocol), so that we can link to other existing editors (Visual Studio Code and many others). It should be possible to create a Java-only, headless implementation that wraps the current source in this repository and can communicate via LSP.
