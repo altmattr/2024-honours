@@ -10,7 +10,8 @@ The semantic mismatch issue arises when there's a discrepancy between the `behav
 1. Model checker semantics does not match the compiled code semantics
 2. Hence, properties proved at high level implementation doe not hold for the compiled code running on actual hardware/real life systems 
 3. So, compiler and model checker should share the same semantics 
-### 2. Lack of suficient manual proofs when automated proofs fail
+
+### 2. Lack of sufficient manual proofs when automated proofs fail
 1. Model checkers do not provide many options for manual proofs when the automated proof techniques fail
 
 ## How does using Pipit Solve these problems 
