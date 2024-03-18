@@ -1,6 +1,6 @@
 # Overview: 
-- Safety critical control systems are implemented uysing Lustre/Scade
-- Model Checkerse like Kind2 are used to check whether the implementation satisfies the high level requirements 
+- Safety critical control systems are implemented using Lustre/Scade
+- Model Checkers like Kind2 are used to check whether the implementation satisfies the high level requirements 
 - It is critical to prove such programs corrected, AND ensure that the proved properties apply to the compiled code 
 - The high level code written in Lustre/Scade is compiled to C code to run on a microcontroller
 
@@ -17,7 +17,7 @@ The semantic mismatch issue arises when there's a discrepancy between the `behav
 ## How does using Pipit Solve these problems 
 Pipit is an embedded language in F*, used for both the implementation and verification of safety critical control systems 
 ### 1. Using a single unified framework
-1. All of the following things are done using a s**ingle unified framework**, the F* family (F*, Pipit, Low*)
+1. All of the following things are done using a **single unified framework**, the F* family (F*, Pipit, Low*)
    1. ***Implementation of these control systems by writing high level code*** : Done using `Pipit`
    2. ***Verification of the high level code*** : Done using `F*s verification capabilities`
    3. ***Microcontroller code generation*** : Done using `Low* (a subset of F*)`, which can be compiled to effecient C code
@@ -27,6 +27,7 @@ Pipit is an embedded language in F*, used for both the implementation and verifi
          1. Helps prove properties of all possible states of the system
       2. This transition system is `verified to be an abstraction of the original semantics`
          1. **Inference**: So proved properties of the transition system should apply to both the High level Pipit code, and the compiled code in C (To check with Matt)
+         2. **Scope**: When we use Obc, it is not within the scope of this thesis to prove/verify that the Obc code is an abstraction of the original Pipit semantics. If we get the time for that, we will do the proof. 
 3. **Microcontroller Code generation with Low\***
    1. Pipit/F* is converted to Low*, which is translated to effecient C code while preserving the original F*/Pipit specifications. To execute programs, Pipit can generate executable code, which is total and semantics-preserving [1]
       1. **Inference**: The C code generated from Low* should have the same semantics as the high level specification written using Pipit, addressing the potential semantic mismatch issue (To check with Matt)
