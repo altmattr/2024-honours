@@ -88,6 +88,15 @@ fn find_max_f64(list: &[f64]) -> f64 { ... }
     2.  Introducing Sensible Indentation
     3.  Dealing with C abmiguities
 
+## Two types of transition systems: 
+- There are two targets from the core language: abstract transition systems for verification, and executable transition systems for extraction to C. 
+- The translation to abstract systems is verified to be an abstraction according to the dynamic semantics (Subsection 3.1). 
+- `One property that still remains to be proven is that the proof obligations on the abstract transition system entail the original proof obligations (Section 4); this pending proof is denoted as negated entailment in the figure(̸⊢).` 
+- The translation to executable transition system is proven to be semantics preserving, as
+is the subsequent translation to Low⋆. The translation from Low⋆ to C is external to this paper and forms part of our trusted computing base. [5] (Section 3)
+  - Inference: So Pipit gets converted to the executable transition system -> which gets converted to Low* -> C
+    - This executable transition system is what I will be replacing using Obc
+
 # Questions to ask Matt:
 - Deep vs Shallow Embedding
   - Write special functions for Kiama, carefully constructed so it does not feel like you are using a library (Shallow)
