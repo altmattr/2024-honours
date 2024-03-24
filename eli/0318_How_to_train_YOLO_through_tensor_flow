@@ -1,1 +1,19 @@
+Will demo in class -
 
+instructions/Commands -
+1. conda create --name (name of env)
+2. create python file in vs code
+3. activate the environment
+4. pip install ultralytics
+5. fill in code
+
+
+code -- 
+from ultralytics import YOLO
+from ultralytics.models.yolo.detect import DetectionPredictor
+
+model = YOLO("yolov8s.pt")
+
+results = model.predict(source ="0", show=True)
+
+print (results)
