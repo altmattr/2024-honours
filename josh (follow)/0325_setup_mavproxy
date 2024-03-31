@@ -1,0 +1,7 @@
+Running multiple Rovers 
+
+./Tools/autotest/sim_vehicle.py --mcast --auto-sysid -i "2 3 4 5" -v Rover --map --auto-offset-line=90,10 -L CMAC --console 
+
+Run this from the ardupilot folder, This'll run a program with multpile rovers, you can choose a rover by doing 
+vehicle [n]
+n being the vehicle SysID
