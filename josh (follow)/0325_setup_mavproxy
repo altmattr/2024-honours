@@ -5,3 +5,8 @@ Running multiple Rovers
 Run this from the ardupilot folder, This'll run a program with multpile rovers, you can choose a rover by doing 
 vehicle [n]
 n being the vehicle SysID
+
+https://ardupilot.org/mavproxy/docs/modules/fakegps.html
+https://ardupilot.org/mavproxy/docs/modules/followtest.html
+https://ardupilot.org/mavproxy/docs/getting_started/multi.html
+https://ardupilot.org/mavproxy/docs/getting_started/cheatsheet.html
