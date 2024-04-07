@@ -31,8 +31,14 @@ Example command - yolo train model=yolov8s.pt data=chessDataLargeSet.yaml epochs
 
 
 # Model results for CPU trained dataset
+<img width="1366" alt="Screenshot 2024-04-07 at 9 24 05 PM" src="https://github.com/altmattr/2024-honours/assets/91449994/a67e7369-60ac-43c1-92c5-e8a3fd2f47d9">
 
-IMAGE HERE
+Works well with photos from the dataset, no detection with photo that isn't familiar.
+
+Ran a test on a test image - 
+
+![IMG_0885_jpeg rf 7cb9256efcf47beb519390a439635769](https://github.com/altmattr/2024-honours/assets/91449994/864cf681-864f-48c8-a601-2990dda2c541)
 
 
-# Second model - 
+# Second model - Attempt
+Tried using the GPU with a signficantly larger dataset, had a memory failure about 10 hours in, regardless what was completed does not work, and no metrics. Unable to resolve.
