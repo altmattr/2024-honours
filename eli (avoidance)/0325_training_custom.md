@@ -6,12 +6,24 @@ This improved the speed, but resulted in a new issue which is that the metrics t
 
 Seems to be a common issue on apple silicon macs, as far as I could find there is no solution, aside from using the CPU, but slowness being the tradeoff. https://github.com/ultralytics/ultralytics/issues/9113 - According to this may be labelling issues of the dataset, or other.
 
-In terms of metrics I can no longer observe are as follows -
-1.Box Loss: This represents the loss or error associated with the predicted bounding box coordinates compared to the ground truth bounding box coordinates. It is a measure of how accurately the model predicts the location and size of objects in the image.
-2.Class Loss (Cls Loss): This represents the loss or error associated with the predicted class probabilities compared to the ground truth class labels. It measures how accurately the model predicts the presence and class of objects in the image.
-3.Box Precision (Box P): This refers to the precision of predicted bounding boxes, which is the ratio of true positive predictions (correctly predicted bounding boxes) to the total number of predicted bounding boxes. It measures how accurately the model localizes objects in the image.
-4.Box Recall (Box R): This refers to the recall of predicted bounding boxes, which is the ratio of true positive predictions to the total number of ground truth bounding boxes. It measures the ability of the model to detect all instances of objects in the image.
-5.mAP50 (Mean Average Precision at IoU 0.5): This is a common evaluation metric used in object detection tasks. It measures the average precision of object detection across different classes at a specific Intersection over Union (IoU) threshold of 0.5. It provides an overall assessment of the model's performance in terms of both localization and classification accuracy.
+In terms of metrics I can no longer observe are as follows -  
+1.Box Loss: This represents the loss or error associated with the predicted bounding box coordinates compared to the ground truth bounding box coordinates. It is a measure of how accurately the model predicts the location and size of objects in the image.  
+2.Class Loss (Cls Loss): This represents the loss or error associated with the predicted class probabilities compared to the ground truth class labels. It measures how accurately the model predicts the presence and class of objects in the image.  
+3.Box Precision (Box P): This refers to the precision of predicted bounding boxes, which is the ratio of true positive predictions (correctly predicted bounding boxes) to the total number of predicted bounding boxes. It measures how accurately the model localizes objects in the image.  
+4.Box Recall (Box R): This refers to the recall of predicted bounding boxes, which is the ratio of true positive predictions to the total number of ground truth bounding boxes. It measures the ability of the model to detect all instances of objects in the image.  
+5.mAP50 (Mean Average Precision at IoU 0.5): This is a common evaluation metric used in object detection tasks. It measures the average precision of object detection across different classes at a specific Intersection over Union (IoU) threshold of 0.5. It provides an overall assessment of the model's performance in terms of both localization and classification accuracy.  
 
-During training we are looking for 1,2 to decrease, and 3,4,5 to increase.
+During training we are looking for 1,2 to decrease, and 3,4,5 to increase.  
 
+
+IMAGE HERE
+
+
+# How to train a custom data-set:
+Example command - yolo train model=yolov8s.pt data=chessDataLargeSet.yaml epochs=10 device='mps' batch=16
+train - means that I want to train a dataset.
+model - utilisation of a pre-trained model (quite possibly completely irrelevant). This assists with transfer learning, feature extraction, faster convergence, regularisation. This isn't necessary to train a model but helps.
+data - indiciating the file I will be using that will be trained
+epoch - epoch refers to one complete pass through the entire training dataset during the training phase of a neural network model. During each epoch, the model is trained on all available training data in random order, typically divided into smaller batches. 
+device - setting the GPU to be used for training
+batch
