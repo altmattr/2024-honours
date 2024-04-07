@@ -42,3 +42,5 @@ Ran a test on a test image -
 
 # Second model - Attempt
 Tried using the GPU with a signficantly larger dataset, had a memory failure about 10 hours in, regardless what was completed does not work, and no metrics. Unable to resolve.
+
+As of 7th of April - copied my code base to another laptop identical to mine, with the only difference being the operating system, with a relatively quick test was able to determine the GPU working on that laptop, including metrics. To test on 9th of April - larger dataset with 10 epochs, likely to run for 10 + hours, will then test aganist photos/videos I have taken of a personal chess set.
