@@ -8,4 +8,4 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     pip \
     libgmp-dev
 
-RUN pip install ultralytics opencv-python
+# RUN pip install ultralytics opencv-python
