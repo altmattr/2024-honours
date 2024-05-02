@@ -1,0 +1,5 @@
+let count_when (max: nat) (inc: stream bool): stream nat = 
+  rec count.
+    check? (0 <= count <= max);
+    let count' = (0 fby count) + if (inc then 1 else 0) in
+    if count' >= max then max else count'
